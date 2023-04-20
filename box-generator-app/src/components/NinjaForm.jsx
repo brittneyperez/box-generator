@@ -31,30 +31,38 @@ const NinjaForm = ( props ) => {
         setSize(50);
     };
     
+    const handleColor = (e) => {
+        setColor(e.target.value);
+    }
+    const handleSize = (e) => {
+        setSize(e.target.value);
+    }
+    
     return (
-        <div className='container-fluid justify-content-between p-2 col-md-4'>
+        <div className="col-12 p-2 border rounded bg-light">
+            <h2 className="text-center my-3">Ninja Bonus</h2>
             <form onSubmit={ submitHandler }>
-                <div className="form-group">
-                    <label>Color</label>
-                    {/* 
-                    Ninja Bonus: clear out the color input on successful submission
-                    By setting our input value to be the value in state, we can reset 
-                    it after successful submission
-                    */}
-                    <input className='form-control' type="text" name="color" value={ color }
-                    onChange={ (e) => setColor(e.target.value) } />
+                <div className="row mb-3">
+                    <label htmlFor="color" className="col-4 col-form-label"><strong>Color:</strong></label>
+                    <div className="col-8">
+                        {/* Ninja Bonus: clear out the color input on successful submission
+                            By setting our input value to be the value in state, we can reset 
+                            it after successful submission */}
+                        <input type="text" name="color" className="form-control" onChange={ handleColor } value={ color } placeholder='enter color (e.g., aliceblue)' />
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label>Width and Height in Pixels</label>
-                    {/* 
-                    Ninja Bonus: clear out the size input on successful submission 
-                    By setting our input value to be the value in state, we can reset 
-                    it after successful submission.
-                    */}
-                    <input className='form-control' type="text" name='size' value={ size }
-                    onChange={ (e) => setSize(e.target.value) } />
+                <div className="row mb-3">
+                    <label htmlFor="color" className="col-4 col-form-label"><strong>Width & Height:</strong></label>
+                    <div className="col-8">
+                        {/* Ninja Bonus: clear out the size input on successful submission 
+                            By setting our input value to be the value in state, we can reset 
+                            it after successful submission.*/}
+                        <input type="text" name="size" className="form-control" onChange={ handleSize } value={ size } placeholder='number in pixels' />
+                    </div>
                 </div>
-                <button className="btn btn-info">Add</button>
+                <div className="d-flex justify-content-end">
+                    <button className="btn btn-outline-dark col-2">Add</button>
+                </div>
             </form>
         </div>
     )

@@ -17,16 +17,24 @@ const Form = ( props ) => {
         // we need to create a new array and spread out the current values first
         // then we add the new color as the last element in the array
         setBoxColorArray([ ...boxColorArray, color ]);
+        setColor("") // reset input to empty
     };
     
+    const handleColor = (e) => {
+        setColor(e.target.value);
+    }
+    
     return (
-        <div className='container-fluid justify-content-between p-2 col-md-4'>
+        <div className="col-md-12 p-4 border rounded bg-light">
+            <h2 className="text-center mb-3">Box Generator</h2>
             <form onSubmit={ submitHandler }>
-                <div className='form-group'>
-                    <label htmlFor="firstName">Color:</label>
-                    <input className='form-control' type="text" name="color" onChange={ (e) => setColor(e.target.value) } />
+                <div className="row mb-3">
+                    <label htmlFor="color" className="col-2 col-form-label"><strong>Color:</strong></label>
+                    <div className="col-8">
+                        <input type="text" name="color" className="form-control" onChange={ handleColor } value={ color } placeholder='enter color (e.g., lavenderblush)' />
+                    </div>
+                    <button className="btn btn-outline-dark col-2">Add</button>
                 </div>
-                <button className="btn btn-info">Add</button>
             </form>
         </div>
     )

@@ -5,11 +5,11 @@ const NinjaDisplay = (props) => {
     const { ninjaBoxArray } = props;
 
     /* Display the values held in state - 
-    the ninjaBoxArray will update when the form is submitted 
-    When state is updated, it will cause this component to re-render this content
+        the ninjaBoxArray will update when the form is submitted 
+        When state is updated, it will cause this component to re-render this content
     */
     return (
-        <div>
+        <div className='col-12 rounded-bottom bg-light mb-3'>
         {
             ninjaBoxArray.map((box, index) => (
             <div key={index} style={{ 

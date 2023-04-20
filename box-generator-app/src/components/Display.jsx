@@ -4,9 +4,13 @@ const Display = ( props ) => {
     // using the getter that was passed from the parent (App.js) component
     const { boxColorArray } = props;
     
-    /* Display the values held in state – the boxColorArray will update when the form is submitted. When state is updated, it will cause the component to re-render this content */
+    /* 
+        Display the values held in state – the boxColorArray will 
+        update when the form is submitted. When state is updated, it 
+        will cause the component to re-render this content 
+    */
     return (
-        <div>
+        <div className='col-12 rounded-bottom bg-light mb-3'>
             {
                 boxColorArray.map((color, index) => (
                     <div key={ index } style={{
